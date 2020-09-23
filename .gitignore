@@ -1,0 +1,13 @@
+# Logs
+yarn-debug.log*
+yarn-error.log*
+
+# Yarn Integrity file
+.yarn-integrity
+
+# System
+.DS_Store
+
+# IDEs
+.idea
+.vscode

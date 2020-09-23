@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+### Configure directories
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+
+### Get Font Awesome token
+
+FA_TOKEN=$(cat "${ENV_DIR}"/FA_TOKEN)
+
+### Create and fill the .npmrc file
+
+if [[ -z "${FA_TOKEN}" ]]; then
+  touch .npmrc
+
+  echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
+  echo "//npm.fontawesome.com/:_authToken=${FA_TOKEN}" > .npmrc
+
+  exit 1
+fi
